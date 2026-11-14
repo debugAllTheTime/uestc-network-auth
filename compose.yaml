@@ -1,0 +1,56 @@
+name: uestc-network-auth
+
+services:
+  auth:
+    image: uestc-network-auth:latest
+    build:
+      context: .
+      target: runtime
+    network_mode: host
+    restart: unless-stopped
+    init: true
+    stop_grace_period: 60s
+    environment:
+      TZ: Asia/Shanghai
+      NETWORK: uestc
+      PING_TARGET: www.scu.edu.cn
+      CHECK_INTERVAL: "16"
+      MAX_FAILED: "3"
+      LOGIN_COOLDOWN: "60"
+      CREDENTIALS_FILE: /run/secrets/uestc_credentials
+      ARCHIVE_ENABLED: "false"
+      RESPONSE_DIR: /var/lib/uestc-auth/responses
+      HTTP_PROXY: ""
+      HTTPS_PROXY: ""
+      ALL_PROXY: ""
+      http_proxy: ""
+      https_proxy: ""
+      all_proxy: ""
+      NO_PROXY: "*"
+      no_proxy: "*"
+    volumes:
+      - type: bind
+        source: ./secrets/credentials.json
+        target: /run/secrets/uestc_credentials
+        read_only: true
+        bind:
+          create_host_path: false
+      - responses:/var/lib/uestc-auth/responses
+    user: "0:0"
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=16m
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_RAW
+    security_opt:
+      - no-new-privileges:true
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  responses:

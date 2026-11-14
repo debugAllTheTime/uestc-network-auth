@@ -1,0 +1,19 @@
+# Local configuration
+secrets/
+private-responses/
+.env
+.env.*
+
+.git/
+.venv/
+__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+logs/
+build-record-*.json
+*.jsonl
+*.jsonl.*

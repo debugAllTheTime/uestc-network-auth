@@ -1,0 +1,21 @@
+# Local configuration
+/secrets/*
+/private-responses/
+.env
+.env.*
+!.env.example
+
+# Python and local environments
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Runtime output
+*.log
+/logs/
+build-record-*.json
+*.jsonl
+*.jsonl.*
