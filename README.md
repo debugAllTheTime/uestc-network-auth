@@ -138,8 +138,9 @@ compose.yaml
 
 ## 致谢
 
-感谢以下开源项目提供的代码与思路：
+感谢以下项目与镜像提供的代码、思路和部署基础：
 
+- [ly1998117/uestc-login](https://hub.docker.com/r/ly1998117/uestc-login)：本项目最初使用的校园网认证 Docker 镜像，提供了基于环境变量的账号配置、网络类型选择和容器部署基础；其说明注明基于 AutoLoginUESTC 修改并打包。
 - [AutoLoginUESTC](https://github.com/b71db892/AutoLoginUESTC)：参考其电子科技大学校园网认证脚本、网络配置和自动重连流程。
 - [BIT-srun-login-script](https://github.com/coffeehat/BIT-srun-login-script)：参考其深澜（Srun）认证协议实现，并复用了相关加密编码代码。
 
