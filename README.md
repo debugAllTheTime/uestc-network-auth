@@ -136,6 +136,15 @@ Dockerfile
 compose.yaml
 ```
 
+## 致谢
+
+感谢以下开源项目提供的代码与思路：
+
+- [AutoLoginUESTC](https://github.com/b71db892/AutoLoginUESTC)：参考其电子科技大学校园网认证脚本、网络配置和自动重连流程。
+- [BIT-srun-login-script](https://github.com/coffeehat/BIT-srun-login-script)：参考其深澜（Srun）认证协议实现，并复用了相关加密编码代码。
+
+本项目在此基础上整理了 Docker Compose 部署、认证页面适配、日志与可选通信归档等功能。相关许可信息见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
 ## License
 
 MIT，详见 [LICENSE](LICENSE) 和 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
